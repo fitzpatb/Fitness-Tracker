@@ -4,6 +4,7 @@ const db = require("../models");
 router.get('/api/workouts', (req, res) => {
   db.Workout.find({})
     .then(workoutData => {
+      console.log(workoutData);
       workoutData.forEach(workout => {
         let total = 0;
         workout.exercises.forEach(ex => {
@@ -14,7 +15,7 @@ router.get('/api/workouts', (req, res) => {
       res.json(workoutData);
     })
     .catch(err => {
-      res.status(404).json(err);
+      res.status(400).json(err);
     });
 });
 
