@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3002;
 
@@ -24,4 +25,6 @@ app.use(require('./routes/htmlRoutes'));
 app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);
 });
+
+
 
